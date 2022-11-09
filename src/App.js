@@ -3,7 +3,6 @@ import Login from "./Components/Login/Login";
 import NavbarMenu from "./Components/Navbar/Navbar";
 import axios from "axios";
 import React, { useState } from "react";
-import EventList from "./Components/EventList/EventList";
 import { ApiClient } from "./Components/ApiClient";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import CreateEvent from "./Components/CreateEvent/CreateEvent";
@@ -27,12 +26,12 @@ const App = () => {
 
   return (
     <>
-      {/* <NavbarMenu /> */}
-
-      {/* <Login /> */}
-      {/* <EventList fetchEvents={fetchEvents} data={data} /> */}
+      <NavbarMenu />
+      <Login />
       <Dashboard client={client} />
+
       <CreateEvent />
+
     </>
   );
 };
