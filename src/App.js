@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import EventList from "./Components/EventList/EventList";
 import { ApiClient } from "./Components/ApiClient";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import CreateEvent from "./Components/CreateEvent/CreateEvent";
 
 const App = () => {
   const [token, changeToken] = useState(window.localStorage.getItem("token"));
@@ -31,7 +32,7 @@ const App = () => {
       {/* <Login /> */}
       {/* <EventList fetchEvents={fetchEvents} data={data} /> */}
       <Dashboard client={client} />
-
+      <CreateEvent />
     </>
   );
 };
