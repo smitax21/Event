@@ -27,9 +27,11 @@ const App = () => {
   return (
     <>
       {/* <NavbarMenu /> */}
+
       {/* <Login /> */}
       {/* <EventList fetchEvents={fetchEvents} data={data} /> */}
       <Dashboard client={client} />
+
     </>
   );
 };
