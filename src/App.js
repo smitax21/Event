@@ -4,6 +4,7 @@ import NavbarMenu from "./Components/Navbar/Navbar";
 import axios from "axios";
 import React, { useState } from "react";
 
+
 function App() {
   //define the data
   const [data, setData] = useState([{}]);
@@ -26,6 +27,7 @@ function App() {
     <>
       <NavbarMenu />
       <Login />
+      <EventList />
     </>
   );
 }
