@@ -28,7 +28,7 @@ const CreateEvent = (props) => {
     result
       .then(() => {
         setDisabled(false);
-        document.getElementById("addForm").reset();
+        // document.getElementById("addForm").reset();
         props.refreshList();
       })
       .catch(() => {
