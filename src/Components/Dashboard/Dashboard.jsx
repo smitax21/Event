@@ -33,44 +33,13 @@ const Dashboard = (props) => {
           date={item.date}
           time={item.time}
           attendance={item.attendance}
-          //   id={event._id}
+          id={event._id}
         />
       );
     });
   };
 
   return <div className="eventList">{buildrows()}</div>;
-
-  //   return (
-
-  //     <>
-  //       Dashboard
-  //       <br />
-  //       {/* <table>
-  //         <thead>
-  //           <tr>
-  //             <th>Event Name</th>
-  //             <th>Description</th>
-  //             <th>Location</th>
-  //             <th>Date</th>
-  //             <th>Time</th>
-  //           </tr>
-  //         </thead>
-  //         <tbody>{buildrows()}</tbody>
-  //       </table> */}
-  //       {buildrows}
-  //       <br />
-  //       <br />
-  //       <Event
-  //         // client={props.client}
-  //         refreshList={() => {
-  //           refreshList();
-  //           setCurrent(undefined);
-  //         }}
-  //         currentEvent={current}
-  //       />
-  //     </>
-  //   );
 };
 
 export default Dashboard;

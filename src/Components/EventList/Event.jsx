@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import "./Event.css";
 
 const Event = (props) => {
   return (
