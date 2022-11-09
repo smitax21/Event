@@ -3,33 +3,35 @@ import Login from "./Components/Login/Login";
 import NavbarMenu from "./Components/Navbar/Navbar";
 import axios from "axios";
 import React, { useState } from "react";
+import EventList from "./Components/EventList/EventList";
+import { ApiClient } from "./Components/ApiClient";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
+const App = () => {
+  const [token, changeToken] = useState(window.localStorage.getItem("token"));
+  const client = new ApiClient(
+    () => token,
+    () => logout()
+  );
 
-function App() {
-  //define the data
-  const [data, setData] = useState([{}]);
-  //api key
-  const apiKey =
-    "vXL6HTXYXNXPf26veBJryq7QIHIMGzn8JxM8fZvwdcIpPMm1BKBHRC9MdAFbyNog";
+  const logout = () => {
+    window.localStorage.removeItem("token");
+    changeToken(undefined);
+  };
 
-  // get api request
-  const fetchEvents = (event) => {
-    axios
-      .get("https://data.mongodb-api.com/app/data-xxmxo/endpoint/data/v1")
-      .then((response) => {
-        setData(response.data);
-        console.log(response.data);
-      });
-    mongodb.then(response);
+  const login = (authToken) => {
+    window.localStorage.setItem("token", authToken);
+    changeToken(authToken);
   };
 
   return (
     <>
-      <NavbarMenu />
-      <Login />
-      <EventList />
+      {/* <NavbarMenu /> */}
+      {/* <Login /> */}
+      {/* <EventList fetchEvents={fetchEvents} data={data} /> */}
+      <Dashboard client={client} />
     </>
   );
-}
+};
 
 export default App;
