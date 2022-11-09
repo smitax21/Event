@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <NavbarMenu />
+      {/* <NavbarMenu /> */}
       <Login />
       <EventList />
     </>
