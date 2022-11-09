@@ -5,9 +5,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { ApiClient } from "./Components/ApiClient";
 import Dashboard from "./Components/Dashboard/Dashboard";
-import CreateEvent from "./Components/CreateEvent/CreateEvent";
 
-const App = () => {
+const App = (props) => {
   const [token, changeToken] = useState(window.localStorage.getItem("token"));
   const client = new ApiClient(
     () => token,
@@ -29,9 +28,6 @@ const App = () => {
       <NavbarMenu />
       <Login />
       <Dashboard client={client} />
-
-      <CreateEvent />
-
     </>
   );
 };

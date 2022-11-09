@@ -6,7 +6,7 @@ const Event = (props) => {
   return (
     <div>
       <Card>
-        <Card.Body>
+        <Card.Body key={props._id}>
           <Card.Title>{props.name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
             {props.location}

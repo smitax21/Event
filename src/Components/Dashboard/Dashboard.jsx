@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Event from "../EventList/Event";
+import CreateEvent from "./../CreateEvent/CreateEvent";
 
 const Dashboard = (props) => {
   const [event, setEvent] = useState([]);
@@ -25,21 +26,35 @@ const Dashboard = (props) => {
   const buildrows = () => {
     return event.map((item) => {
       return (
-        <Event
-          key={item._id}
-          name={item.name}
-          description={item.description}
-          location={item.location}
-          date={item.date}
-          time={item.time}
-          attendance={item.attendance}
-          id={event._id}
-        />
+        <>
+          <Event
+            key={item._id}
+            name={item.name}
+            description={item.description}
+            location={item.location}
+            date={item.date}
+            time={item.time}
+            attendance={item.attendance}
+            id={event._id}
+          />
+        </>
       );
     });
   };
 
-  return <div className="eventList">{buildrows()}</div>;
+  return (
+    <>
+      <div className="eventList">{buildrows()}</div>;
+      <CreateEvent
+        client={props.client}
+        refreshList={() => {
+          props.refreshList();
+          setCurrent(undefined);
+        }}
+        currentAd={current}
+      />
+    </>
+  );
 };
 
 export default Dashboard;
