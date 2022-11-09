@@ -5,7 +5,7 @@ import NavbarMenu from "./Components/Navbar/Navbar";
 function App() {
   return (
     <>
-      <NavbarMenu />
+      {/* <NavbarMenu /> */}
       <Login />
     </>
   );
