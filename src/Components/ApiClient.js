@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://localhost:3001/";
+const url = "https://data.mongodb-api.com/app/data-upwsf/endpoint/data/v1";
 
 export class ApiClient {
   apiCall(method, url, data) {
