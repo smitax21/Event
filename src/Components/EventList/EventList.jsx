@@ -1,9 +1,9 @@
 import React from "react";
 import Event from "./Event";
-import data from "./data";
+// import data from "./data";
 import "./EventList.css";
 
-const EventList = () => {
+const EventList = ({ data }) => {
   const createEvents = () => {
     let EventsList = data.map((event, i) => {
       return (
