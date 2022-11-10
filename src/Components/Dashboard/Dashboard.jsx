@@ -17,7 +17,6 @@ const Dashboard = (props) => {
 
   const updateEvent = (item) => {
     setCurrent(item);
-    console.log(item);
   };
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const Dashboard = (props) => {
   const buildrows = () => {
     return event.map((item) => {
       return (
-        <div className="event-wrapp">
+        <div className="event-wrapp" key={item._id}>
           <Event
             key={item._id}
             name={item.name}
@@ -58,7 +57,7 @@ const Dashboard = (props) => {
       <CreateEvent
         client={props.client}
         refreshList={() => {
-          props.refreshList();
+          refreshList();
           setCurrent(undefined);
         }}
         currentAd={current}
