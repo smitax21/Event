@@ -1,17 +1,15 @@
-import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import logo from "./augb-logo.jpg";
 import "./Navbar.css";
 
-const NavbarMenu = () => {
+const NavbarMenu = (props) => {
   return (
     <>
       <Navbar>
         <Container className="nav-container">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <img
               className="logo"
               src={logo}
@@ -25,6 +23,12 @@ const NavbarMenu = () => {
           <Button>
             <a className="login-btn" href="/login">
               Login
+            </a>
+          </Button>
+
+          <Button>
+            <a className="login-btn" href="/add">
+              Add Event
             </a>
           </Button>
         </Container>

@@ -1,10 +1,13 @@
-import "./App.css";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import NavbarMenu from "./Components/Navbar/Navbar";
 import axios from "axios";
-import React, { useState } from "react";
+
 import { ApiClient } from "./Components/ApiClient";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import "./App.css";
+import AddEvent from "./Components/CreateEvent/AddEvent";
 
 const App = (props) => {
   const [token, changeToken] = useState(window.localStorage.getItem("token"));
@@ -26,8 +29,13 @@ const App = (props) => {
   return (
     <>
       <NavbarMenu />
-      <Login />
-      <Dashboard client={client} />
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Dashboard client={client} />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/add" element={<AddEvent />} />
+        </Routes>
+      </Router>
     </>
   );
 };

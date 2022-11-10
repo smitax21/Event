@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AddEvent from "../CreateEvent/AddEvent";
 import Event from "../EventList/Event";
 import CreateEvent from "./../CreateEvent/CreateEvent";
 import "./Dashboard.css";
@@ -60,7 +61,7 @@ const Dashboard = (props) => {
           refreshList();
           setCurrent(undefined);
         }}
-        currentAd={current}
+        currentEvent={current}
       />
     </>
   );

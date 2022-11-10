@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 const CreateEvent = (props) => {
-  const [formData, changeFormData] = useState({ name: "" });
+  const [formData, changeFormData] = useState({
+    name: "",
+    description: "",
+    location: "",
+    date: "",
+    time: "",
+    attendance: "",
+  });
   const [disabled, setDisabled] = useState(false);
 
   const submitHandler = (e) => {
