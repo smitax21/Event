@@ -2,19 +2,19 @@ import React, { useState } from "react";
 
 const CreateEvent = (props) => {
   const [disabled, setDisabled] = useState(false);
-
   const submitHandler = (e) => {
     e.preventDefault();
     setDisabled(true);
     let result;
-    if (props.currentEvent) {
+    if (props.current) {
       result = props.client.updateEvent(
-        props.currentEvent._id,
+        props.current._id,
         e.target.name.value,
         e.target.description.value,
         e.target.location.value,
         e.target.date.value,
-        e.target.time.value
+        e.target.time.value,
+        e.target.attendance.value
       );
     } else {
       result = props.client.addEvent(
@@ -22,7 +22,8 @@ const CreateEvent = (props) => {
         e.target.description.value,
         e.target.location.value,
         e.target.date.value,
-        e.target.time.value
+        e.target.time.value,
+        e.target.attendance.value
       );
     }
     result
@@ -38,9 +39,6 @@ const CreateEvent = (props) => {
   };
   return (
     <>
-      {props.currentEvent ? "Update" : "Add"}
-      <br />
-
       <form onSubmit={(e) => submitHandler(e)}>
         <input
           type="text"
@@ -75,6 +73,13 @@ const CreateEvent = (props) => {
           defaultValue={props.currentEvent?.time}
           name="time"
           placeholder="Time"
+          disabled={disabled}
+        />
+        <input
+          type="text"
+          defaultValue={props.currentEvent?.attendance}
+          name="attendance"
+          placeholder="Registration required"
           disabled={disabled}
         />
         <br />

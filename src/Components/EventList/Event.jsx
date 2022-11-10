@@ -5,19 +5,23 @@ import "./Event.css";
 const Event = (props) => {
   return (
     <div>
-      <Card>
-        <Card.Body key={props._id}>
+      <Card className="card-wrapp" key={props._id}>
+        <Card.Body id={props._id}>
           <Card.Title>{props.name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">
             {props.location}
           </Card.Subtitle>
-          <Card.Text>{props.description}</Card.Text>
+          <Card.Text className="description">{props.description}</Card.Text>
           <Card.Text>
             <span>{props.date}</span>
             <span> </span>
             <span>{props.time}</span>
           </Card.Text>
-          <Card.Link href={props.attendance} target="_blank">
+          <Card.Link
+            className="attendance"
+            href={props.attendance}
+            target="_blank"
+          >
             {props.attendance}
           </Card.Link>
         </Card.Body>
