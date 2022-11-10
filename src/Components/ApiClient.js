@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "https://data.mongodb-api.com/app/data-upwsf/endpoint/data/v1";
+const url = "http://localhost:3001/";
 
 export class ApiClient {
   apiCall(method, url, data) {
@@ -32,7 +32,7 @@ export class ApiClient {
   }
 
   updateEvent(id, name, description, location, date, time, attendance) {
-    return this.apiCall("post", `${url}${id}`, {
+    return this.apiCall("put", `${url}${id}`, {
       name,
       description,
       location,
