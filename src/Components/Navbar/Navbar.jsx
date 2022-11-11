@@ -26,7 +26,7 @@ const NavbarMenu = (props) => {
             </a>
           </Button>
 
-          <Button>
+          <Button onClick={props.handleVisibility}>
             <a className="login-btn" href="/add">
               Add Event
             </a>

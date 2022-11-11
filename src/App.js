@@ -8,6 +8,7 @@ import { ApiClient } from "./Components/ApiClient";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import "./App.css";
 import AddEvent from "./Components/CreateEvent/AddEvent";
+import CreateEvent from "./Components/CreateEvent/CreateEvent";
 
 const App = (props) => {
   const [token, changeToken] = useState(window.localStorage.getItem("token"));
@@ -33,7 +34,7 @@ const App = (props) => {
         <Routes>
           <Route exact path="/" element={<Dashboard client={client} />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/add" element={<AddEvent />} />
+          <Route exact path="/add" element={<AddEvent client={client} />} />
         </Routes>
       </Router>
     </>
