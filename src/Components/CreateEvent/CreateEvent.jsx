@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import NavbarMenu from "../Navbar/Navbar";
 
 const CreateEvent = (props) => {
   const [formData, changeFormData] = useState({
@@ -10,12 +11,17 @@ const CreateEvent = (props) => {
     attendance: "",
   });
   const [disabled, setDisabled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const handleVisibility = () => {
+    setIsVisible((current) => !current);
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
     setDisabled(true);
     let result;
-    if (props.currentAd) {
+    if (props.currentEvent) {
       // if there is a current post
       // udate the current post
       // take the current post
@@ -23,7 +29,7 @@ const CreateEvent = (props) => {
       // so that we can mutate it
 
       result = props.client.updateEvent(
-        props.currentAd._id,
+        props.currentEvent._id,
         e.target.name.value,
         e.target.description.value,
         e.target.location.value,
@@ -46,7 +52,7 @@ const CreateEvent = (props) => {
         setDisabled(false);
         // document.getElementById("addForm").reset();
         console.log(props);
-        props.refreshList();
+        // props.refreshList();
       })
       .catch((error) => {
         console.log(error);
@@ -57,9 +63,9 @@ const CreateEvent = (props) => {
 
   useEffect(() => {
     changeFormData({
-      name: props.currentAd ? props.currentAd.name : "",
+      name: props.currentEvent ? props.currentEvent.name : "",
     });
-  }, [props.currentAd]);
+  }, [props.currentEvent]);
 
   const handleInput = (e) => {
     let newState = { ...formData };
@@ -70,7 +76,11 @@ const CreateEvent = (props) => {
 
   return (
     <>
-      <form onSubmit={(e) => submitHandler(e)}>
+      {/* <NavbarMenu handleVisibility={handleVisibility} /> */}
+      <form
+        onSubmit={(e) => submitHandler(e)}
+        style={{ visibility: isVisible ? "visible" : "hidden" }}
+      >
         <input
           type="text"
           value={formData.name}
@@ -83,35 +93,35 @@ const CreateEvent = (props) => {
         />
         <input
           type="text"
-          defaultValue={props.currentAd?.description}
+          defaultValue={props.currentEvent?.description}
           name="description"
           placeholder="Description"
           disabled={disabled}
         />
         <input
           type="text"
-          defaultValue={props.currentAd?.location}
+          defaultValue={props.currentEvent?.location}
           name="location"
           placeholder="Location"
           disabled={disabled}
         />
         <input
           type="date"
-          defaultValue={props.currentAd?.date}
+          defaultValue={props.currentEvent?.date}
           name="date"
           placeholder="Date"
           disabled={disabled}
         />
         <input
           type="time"
-          defaultValue={props.currentAd?.time}
+          defaultValue={props.currentEvent?.time}
           name="time"
           placeholder="Time"
           disabled={disabled}
         />
         <input
           type="text"
-          defaultValue={props.currentAd?.attendance}
+          defaultValue={props.currentEvent?.attendance}
           name="attendance"
           placeholder="Registration required"
           disabled={disabled}
