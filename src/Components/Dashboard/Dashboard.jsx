@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddEvent from "../CreateEvent/AddEvent";
 import Event from "../EventList/Event";
-import CreateEvent from "./../CreateEvent/CreateEvent";
 import "./Dashboard.css";
 
 const Dashboard = (props) => {
@@ -55,7 +54,7 @@ const Dashboard = (props) => {
   return (
     <>
       <div className="eventList">{buildrows()}</div>
-      <CreateEvent
+      <AddEvent
         client={props.client}
         refreshList={() => {
           refreshList();

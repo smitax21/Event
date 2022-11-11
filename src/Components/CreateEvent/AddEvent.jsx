@@ -11,7 +11,7 @@ const AddEvent = (props) => {
         client={props.client}
         refreshList={() => {
           props.refreshList();
-          props.Current(undefined);
+          props.Current();
         }}
         currentEvent={props.current}
       />
