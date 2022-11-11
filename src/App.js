@@ -32,7 +32,13 @@ const App = (props) => {
       <Router>
         <Routes>
           <Route exact path="/" element={<Dashboard client={client} />} />
-          <Route exact path="/login" element={<Login />} />
+          <Route
+            exact
+            path="/login"
+            element={
+              <Login loggedIn={(token) => login(token)} client={client} />
+            }
+          />
           <Route exact path="/add" element={<AddEvent />} />
         </Routes>
       </Router>
